@@ -8,6 +8,9 @@ let operator;
 let previousNumber;
 let actualNumber;
 
+if(display.textContent === "")
+    display.textContent = "0";
+
 function updateDisplay(number) {
     if (display.textContent.includes(",") && number == ",")
         return 0;
@@ -55,7 +58,7 @@ const equal = document.querySelector("#equal");
 
 equal.addEventListener('click', calculate);
 
-const clearDisplay = () => display.textContent = "";
+const clearDisplay = () => display.textContent = "0";
 
 document.querySelector("#clearDisplay").addEventListener("click", clearDisplay);
 
@@ -70,7 +73,10 @@ document.querySelector("#clearCalc").addEventListener("click", clearCalc);
 
 const removeLastNumber = () => {
     newNumber = true;
-    updateDisplay(display.textContent.slice(0, -1));
+    if(display.textContent.length == 1)
+        display.textContent = "0";     
+    else
+        updateDisplay(display.textContent.slice(0, -1));             
 }
 
 document.querySelector("#backspace").addEventListener("click", removeLastNumber);
