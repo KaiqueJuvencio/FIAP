@@ -1,12 +1,16 @@
 const display = document.querySelector('#display');
 const keys = document.querySelectorAll('[id*=key]');
 const operators = document.querySelectorAll('[id*=Operator]');
+const decimal = document.querySelector('[id=decimal]');
 
 let newNumber = true;
 let operator;
 let previousNumber;
+let actualNumber;
 
 function updateDisplay(number) {
+    if (display.textContent.includes(",") && number == ",")
+        return 0;
     if (newNumber) {
         display.textContent = number;
         newNumber = false;
@@ -14,10 +18,15 @@ function updateDisplay(number) {
     else display.textContent += number;
 }
 
+function updateDisplayDecimal() {    
+    updateDisplay(",");
+}
+
 const insertNumber = ({ target }) =>
     updateDisplay(target.textContent);
 
 keys.forEach(key => key.addEventListener('click', insertNumber));
+decimal.addEventListener('click', updateDisplayDecimal);
 
 const selectOperator = (event) => {
     newNumber = true;
@@ -27,8 +36,16 @@ const selectOperator = (event) => {
 
 operators.forEach(operator => operator.addEventListener("click", selectOperator));
 
-const calculate = () => {
-    const actualNumber = display.textContent;
+function checkComma() {
+    actualNumber = display.textContent;
+    if (previousNumber.includes(","))
+        previousNumber = previousNumber.replace(",", ".");
+    if (actualNumber.includes(","))
+        actualNumber = actualNumber.replace(",", ".");    
+}
+
+const calculate = () => {    
+    checkComma();
     const result = eval(`${previousNumber}${operator}${actualNumber}`); //template string
     newNumber = true;
     updateDisplay(result);
@@ -58,7 +75,7 @@ const removeLastNumber = () => {
 
 document.querySelector("#backspace").addEventListener("click", removeLastNumber);
 
-const invertSignal = () =>{
+const invertSignal = () => {
     newNumber = true;
     updateDisplay(display.textContent * -1);
 }
