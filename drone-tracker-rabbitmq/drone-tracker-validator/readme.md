@@ -12,6 +12,8 @@ mvn clean install
 
 ## Fluxo:
 
+![image](https://user-images.githubusercontent.com/39711228/183234004-b32cdcc9-8c53-4b77-942b-29239c3155e8.png)
+
 ### 1º Microsserviço
 ### drone-tracker-receptor [Porta:8080]
 Serviço responsável por ser o receptor do drone
