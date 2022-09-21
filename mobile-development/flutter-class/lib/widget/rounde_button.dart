@@ -20,7 +20,7 @@ class RoundedButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       elevation: 4,
       child: InkWell(
-        onTap: (){print("CLicou");},
+        onTap: onTap,
         child: ListTile(
           leading: Icon(
             icon,

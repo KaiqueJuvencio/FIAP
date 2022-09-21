@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_class/screens/menu_screen.dart';
+import 'package:flutter_class/screens/personal_card_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MenuScreen(),
+      initialRoute: MenuScreen.id,
+      routes: {
+        MenuScreen.id : (context) => const MenuScreen(),
+        PersonalCardScreen.id : (context) => const PersonalCardScreen(),
+      },
     );
   }
 }
