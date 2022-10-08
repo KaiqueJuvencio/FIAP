@@ -24,6 +24,10 @@ class MenuScreen extends StatelessWidget {
                   Navigator.pushNamed(
                     context,
                     PersonalCardScreen.id,
+                    arguments: const PersonalCardScreenArguments(image: 'assets/images/bird.png',
+                        name: 'Kaique Graton',
+                        phone: '11 96142-7575',
+                        email: 'kaiquejuvencio@hotmail.com')
                   );
                 },
               )
