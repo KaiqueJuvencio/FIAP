@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_class/screens/menu_screen.dart';
 import 'package:flutter_class/screens/personal_card_screen.dart';
+import 'package:flutter_class/screens/random_dice.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
         MenuScreen.id : (context) => const MenuScreen(),
         PersonalCardScreen.id : (context) => PersonalCardScreen(
           arguments: ModalRoute.of(context)?.settings.arguments as PersonalCardScreenArguments,
+        ),
+        RandomDice.id : (context) => RandomDice(
+          arguments: ModalRoute.of(context)?.settings.arguments as RandomDiceArguments,
         ),
       },
     );
