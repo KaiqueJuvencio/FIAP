@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_class/screens/personal_card_screen.dart';
+import 'package:flutter_class/screens/quiz/quiz_screen.dart';
 import 'package:flutter_class/screens/random_dice.dart';
 import 'package:flutter_class/widget/rounde_button.dart';
 
@@ -44,6 +45,17 @@ class MenuScreen extends StatelessWidget {
                           name: 'Random Dice',
                           phone: '11 96142-7575',
                           email: 'kaiquejuvencio@hotmail.com')
+                  );
+                },
+              ),
+              const SizedBox(height: 16,),
+              RoundedButton(
+                icon: Icons.person,
+                text: 'Quiz',
+                onTap: () {
+                  Navigator.pushNamed(
+                      context,
+                      QuizScreen.id,
                   );
                 },
               )

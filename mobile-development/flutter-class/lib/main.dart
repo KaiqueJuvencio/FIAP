@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_class/screens/menu_screen.dart';
 import 'package:flutter_class/screens/personal_card_screen.dart';
+import 'package:flutter_class/screens/quiz/quiz_screen.dart';
+import 'package:flutter_class/screens/quiz_finished.dart';
 import 'package:flutter_class/screens/random_dice.dart';
 
 void main() {
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         RandomDice.id : (context) => RandomDice(
           arguments: ModalRoute.of(context)?.settings.arguments as RandomDiceArguments,
         ),
+        QuizScreen.id: (context) => const QuizScreen(),
+        FinishedQuizScreen.id: (context) => FinishedQuizScreen(arguments: ModalRoute.of(context)?.settings.arguments as QuizFinishedArguments,)
       },
     );
   }
